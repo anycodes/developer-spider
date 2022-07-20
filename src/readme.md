@@ -23,9 +23,9 @@
 ## 前期准备
 使用该项目，推荐您拥有以下的产品权限 / 策略：
 
-| 服务/业务 | 服务名 |     
+| 服务/业务 | 函数计算 |     
 | --- |  --- |   
-| 权限/策略 | 创建函数 |     
+| 权限/策略 | AliyunFCFullAccess |     
 
 
 </table>
@@ -108,6 +108,36 @@ if 'xxxxx' in response:
 ### 数据的下游处理
 
 数据的下游处理方法在本文中并没有提及，通常情况下会将数据存放在MongoDB等数据库进行持久化，或将数据转到下游清洗逻辑进行数据清洗等相关的操作。
+
+## 定时器与测试
+
+当前案例采用的是定时任务，当然，在实际生产中可能出现触发式爬虫，例如像OSS写入数据进行数据采集，或者通过url进行数据采集。这一部分可以根据项目实际需求进行更改。
+
+项目中定时任务配置：
+
+```
+triggers:
+  - name: timer
+    type: timer
+    config:
+      cronExpression: '@every 100m'
+      enable: true
+```
+
+部署完成后，可以点击函数：
+
+![](http://image.editor.devsapp.cn/evBw7lh8ktv6xDBzSSzvjr1ykchAF9hG41gf1ek1sk8tr4355A/zraBABufG3ta2AGrzA82)
+
+进入到函数查看页面，此时可以点击运行查看测试效果：
+
+![](http://image.editor.devsapp.cn/evBw7lh8ktv6xDBzSSzvjr1ykchAF9hG41gf1ek1sk8tr4355A/ig4E84uS4twBEtuz6vkZ)
+
+
+
+
+
+
+
 
 </appdetail>
 

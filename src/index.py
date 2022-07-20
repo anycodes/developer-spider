@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
 import json
 import random
 import requests
@@ -31,7 +30,7 @@ def setProxiesPool():
         "protocol": 0
     }
     headers = {
-        "Authorization": 'APPCODE ' + os.environ['APPCODE']
+        "Authorization": 'APPCODE ' + 'd5e34cc8c5f54262822b65a1661c5e69'
     }
     global proxies
     proxies = proxies + [{
